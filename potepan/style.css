@@ -16,7 +16,8 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin: 0 36px 0 36px;
+    margin: 0px 36px;
+    padding-top: 10px;
     font-size: small;
 }
 
@@ -38,7 +39,7 @@
     font-weight: 700;
     height: 40px;
     padding: 0 20px;
-    margin-bottom: 16px;
+    margin-bottom: 0px;
     cursor: pointer;
     transition: background-color 0.3s ease, color 0.3s ease;
 }
@@ -49,8 +50,9 @@
     text-decoration: none;
 }
 
-.migiuenobotan{
+#migiuenobotan{
     border-radius: 500px;
+    align-items: center;
 }
 
 .list {
@@ -154,7 +156,7 @@ li {
   display: none;
 }
 
-/* ハンバーガーアイコン（PCでは非表示） */
+/* ハンバーガーアイコン*/
 .menu-btn {
   display: none;
   position: fixed;
@@ -200,71 +202,47 @@ nav {
     align-items: center;
     padding: 0 15px;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    margin: 0;
+    padding: 0;
+  }
+
+  html, body {
+    margin: 0;
+    padding: 0;
   }
 }
 
+
+
 @media screen and (max-width: 768px) {
   .headercontainer {
-    margin: 0; /* スマホは左右の余白をなくす */
+    margin: 0;
     padding: 0 15px;
     height: 56px;
     display: flex;
-    justify-content: space-between; /* ロゴ左、ハンバーガー右 */
+    justify-content: space-between;
     align-items: center;
   }
 
   .header-logo {
-    width: 110px; /* スマホ用にロゴを小さめに */
+    width: 110px;
     height: auto;
   }
 }
 
 @media screen and (max-width: 768px) {
-  /* ハンバーガーアイコンを表示 */
-  .menu-btn {
-    position: fixed; 
-    top: auto;
-    right: 0;
-    display: block;
-    align-self: center;
-    z-index: 100;
-  }
-
-/* チェックONで表示 */
-
 #menu-btn-check:checked ~ .menu-overlay {
   display: block;
-  z-index: 9997; /* navより下 */
+  z-index: 9997;
 }
 
 #menu-btn-check:checked ~ nav {
   display: flex;
   z-index: 9999;
 }
-
-/* メニュー項目 */
-nav ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-
-nav li {
-  margin: 16px 0;
-  text-align: center;
-}
-
-nav a {
-  font-size: 20px;
-  color: #fff;; /* 白文字 */
-  text-decoration: none;
-}
 }
 
 @media screen and (max-width: 768px) {
-  /* 背景のオーバーレイ */
-  
-/* 背景の黒半透明は overlay に担当させる */
 .menu-overlay {
   display: none;
   position: fixed;
@@ -272,30 +250,28 @@ nav a {
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0,0,0,0.6); /* ←黒半透明 */
-  z-index: 9998; /* nav の下、でもコンテンツの上 */
+  background: rgba(0,0,0,0.6);
+  z-index: 9998;
 }
-
 }
 
 @media screen and (max-width: 768px) {
   nav ul {
     display: flex;
-    flex-direction: column; /* 縦並びにする */
+    flex-direction: column;
     padding: 0;
     margin: 0;
     list-style: none;
   }
 
   nav li {
-    display: block; /* 横並びを解除 */
-    margin: 16px 0; /* 項目ごとの間隔を空ける */
-    text-align: left; /* 左寄せにしたい場合 */
+    display: block;
+    margin: 16px 0;
   }
 
   nav a {
     display: block;
-    width: 100%; /* リンクを幅いっぱいに */
+    width: 100%;
     padding: 12px 0;
     color: #fff;
     text-decoration: none;
@@ -304,19 +280,17 @@ nav a {
 
 @media screen and (max-width: 768px) {
   nav ul li a {
-    color: #fff !important;   /* 白文字を最優先で反映 */
+    color: #fff !important;
     position: relative;
-    z-index: 10001;           /* 背景より手前に出す */
+    z-index: 10001;
   }
 }
 
-/* メニューが開いたとき（.activeクラスが付く想定）に文字を白にする */
 .sp-nav.active a {
   color: #fff !important;
 }
 
 @media screen and (max-width: 768px) {
-  /* ハンバーガーアイコン */
   .menu-btn {
     position: fixed;
     top: 20px;
@@ -327,7 +301,7 @@ nav a {
     width: 30px;
     height: 22px;
     cursor: pointer;
-    z-index: 10000; /* 一番上に */
+    z-index: 10000;
   }
 
   .menu-btn span {
@@ -339,34 +313,20 @@ nav a {
     transition: 0.3s;
   }
 
-  /* メニュー本体 */
   nav {
     position: fixed;
     top: 0;
-    right: -100%; /* 最初は隠す */
+    right: -100%;
     width: 80%;
     height: 100%;
     background: rgba(0,0,0,0.8);
     padding: 40px 20px;
-    transition: right 0.3s ease; /* ← rightをアニメーション */
+    transition: right 0.3s ease;
     z-index: 9999;
   }
 
-  /* チェックONで表示 */
   #menu-btn-check:checked ~ nav {
-    right: 0; /* ←ここで出す！ */
-  }
-
-  /* 背景の黒半透明 */
-  .menu-overlay {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0,0,0,0.6);
-    z-index: 9998;
+    right: 0;
   }
 
   #menu-btn-check:checked ~ .menu-overlay {
@@ -374,110 +334,105 @@ nav a {
   }
 }
 
-/* ====== スマホ用：ファーストビュー整理（貼る場所：style.css の一番下） ====== */
 @media screen and (max-width: 768px) {
-  /* 全体（高さ固定を解除して縦レイアウト） */
   .first-view {
     position: relative;
     height: auto !important;
-    padding: 18px 0 40px;
+    padding-top: 0% !important;
     overflow: visible;
   }
 
-  /* コンテナ内マージン調整（左右の余白確保） */
   .first-view_container {
+    position: relative;
     padding-top: 0 !important;
     padding-left: 16px;
     padding-right: 16px;
     box-sizing: border-box;
   }
 
-  /* 人の画像：絶対配置を解除して中央におさめる */
   .human {
     position: relative !important;
-    top: auto !important;
-    right: auto !important;
+    top: -20px;
+    right: -80px;
     width: 92% !important;
     max-width: 420px;
     height: auto !important;
     display: block;
-    margin: 0 auto 18px;
+    margin: 0 0 18px auto;
     object-fit: cover;
   }
 
-  /* 見出し（タイトル）をスマホ向けに縮小・行間調整 */
   .first-viewContent_title {
     position: relative;
-    font-size: 28px !important;      /* 必要なら 26〜30px の間で調整 */
-    line-height: 1.25 !important;
-    margin: 6px 0 14px !important;
-    padding: 0 4px;
-    text-align: left;                /* 見本は左寄せなので左寄せに */
+    text-align: left;
     word-break: break-word;
-    font-size: 24px !important;
-    line-height: 1.3 !important;
+    font-size: 21px !important;
     margin: 8px 0 12px !important;
-    line-height: 1.4 !important;
+    line-height: 1.60 !important;
     margin-bottom: 8px !important;
+    padding-right: 90px;
+    white-space: nowrap;
+    letter-spacing: -1.0px;
+    font-weight: 800;
   }
 
-  /* No.1バッジを自然流れに（絶対位置を外す） */
-  .No1 {
-    position: absolute;
-    position: relative !important;
-    top: auto !important;
-    right: auto !important;
-    display: inline-block;
-    width: 84px;
-    height: auto;
-    margin: 8px 0 12px;
-    vertical-align: middle;
-    margin: 10px 0 16px !important;
-    margin: 12px auto 20px auto !important;
-    top: 0;
-    right: -60px;
-    width: 80px;
-  }
-
-  /* メインのボタンを幅に合わせて中央寄せ */
+.No1 {
+  position: absolute !important;
+  top: -15px;
+  right: 30px;
+  width: 100px;
+  height: auto;
+  margin: 0 !important;
+  z-index: 3;
+}
   .mainnobotan {
-    width: calc(100% - 40px) !important;
+    height: 64px;
+    width: 350px;
     max-width: 720px;
     margin: 18px auto !important;
     padding: 14px 18px !important;
     font-size: 16px !important;
     display: block;
     box-sizing: border-box;
-    margin: 24px auto 28px !important;
-
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
-  /* 注意書き等の小さいテキスト */
   .first-viewcontent_sitanotiisaino {
     font-size: 12px !important;
     line-height: 1.4 !important;
     padding: 0 4px;
     color: #222;
-    font-size: 10px;       /* 文字小さめ */
-    line-height: 1.4;      /* 行間を少し広めに */
-    padding: 0 10px;       /* 左右に余白 */
-    display: block;        /* ブロック化で折り返しやすく */
-    text-align: left;      /* 左寄せに */
+    display: block;
+    text-align: left;
   }
 
-  /* デコ（三角・長丸）はスマホでは非表示にしてレイアウトをスッキリ */
-  .hidariuenosannkaku,
-  .migisitanosannkaku,
+@media screen and (max-width: 767px) {
+  .hidariuenosannkaku {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 60%;
+    height: auto;
+    z-index: -1;
+  }
+
   .hidariuenonagamaru {
-    display: none !important;
+    position: absolute;
+    top: -5%;
+    left: 10%;
+    width: 80%;
+    height: auto;
+    z-index: -1;
   }
 
-  /* もし h2 の font-weight が重すぎるなら軽めにする（任意） */
-  .first-viewContent_title { font-weight: 800; }
+  .migisitanosannkaku {
+    display: none;
+  }
+}
 
-  /* ヘッダー位置の微調整（必要なら） */
   .atama { top: 0 !important; height: 56px; }
 
-  /* 余計な絶対配置で被ってしまう要素がある場合の保険 */
   .first-viewContent, .first-view_container { position: relative; z-index: 2; }
 }
