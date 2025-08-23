@@ -56,21 +56,21 @@
 }
 
 .list {
-    margin-left: auto; /* 左のマージンを自動に設定 */
-    margin-right: 0; /* 右のマージンを0に設定 */
+    margin-left: auto;
+    margin-right: 0;
 }
 
 li {
-    display: inline-block; /* 横並びにするためにインラインブロックに設定 */
+    display: inline-block;
     text-align: center;
     vertical-align: middle;
-    margin: 0 10px; /* リストアイテム間のマージンを追加 */
+    margin: 0 10px;
 }
 
 .hidariuenosannkaku{
     z-index: 0;
     position: absolute;
-    margin-top: -70px; /* 上のマージン */
+    margin-top: -70px;
 }
 
 .migisitanosannkaku{
