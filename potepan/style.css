@@ -1,0 +1,438 @@
+
+.atama{
+    z-index: 10000;
+    position: relative;
+    background-color: white;
+    height: 80px;
+    width: auto;
+    top: -15px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.headercontainer {
+    z-index: 1;
+    position: relative;
+    height: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0px 36px;
+    padding-top: 10px;
+    font-size: small;
+}
+
+.header-logo{
+    width: 200px;
+    height: auto;
+}
+
+.headerbutton {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    background-color: orange;
+    text-decoration: none;
+    border: none;
+    border-radius: 38px;
+    font-size: 12px;
+    font-weight: 700;
+    height: 40px;
+    padding: 0 20px;
+    margin-bottom: 0px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.headerbutton:hover {
+    color: #fff;
+    background-color: #c9c9c9;
+    text-decoration: none;
+}
+
+#migiuenobotan{
+    border-radius: 500px;
+    align-items: center;
+}
+
+.list {
+    margin-left: auto;
+    margin-right: 0;
+}
+
+li {
+    display: inline-block;
+    text-align: center;
+    vertical-align: middle;
+    margin: 0 10px;
+}
+
+.hidariuenosannkaku{
+    z-index: 0;
+    position: absolute;
+    margin-top: -70px;
+}
+
+.migisitanosannkaku{
+    z-index: 0;
+    position: absolute;
+    bottom: 70px;
+    right: 0px;
+}
+
+.hidariuenonagamaru{
+    z-index: 0;
+    position: absolute;
+    top: 200px;
+    left: -70px;
+}
+
+.human {
+    z-index: 0;
+    position: absolute;
+    top: -70px;
+    right: 0px;
+    width: 775px;
+}
+
+.first-view{
+    position: relative;
+    height: 739px;
+}
+
+.first-view_container{
+    max-width: 1040px;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    padding-top: 219px;
+}
+
+.first-viewContent_title{
+    color: black;
+    font-family: "Lato", sans-serif;
+    font-size: 42px;
+    font-weight: 800;
+    line-height: 63px;
+    margin-bottom: 16px;
+}
+
+.No1{
+    z-index: 1;
+    position: absolute;
+    top: 65px;
+    right: 415px;
+}
+
+.mainnobotan {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 480px;
+    height: 64px;
+    border-radius: 38px;
+    background-color: orange;
+    color: white;
+    font-size: 16px;
+    font-weight: 700;
+    text-align: center;
+    text-decoration: none;
+    margin-bottom: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.mainnobotan:hover {
+    color: #000;
+    background-color: #c9c9c9;
+    text-decoration: none;
+}
+
+.first-viewcontent_sitanotiisaino{
+    font-size: small;
+}
+
+#menu-btn-check {
+  display: none;
+}
+
+/* ハンバーガーアイコン*/
+.menu-btn {
+  display: none;
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  width: 30px;
+  height: 25px;
+  cursor: pointer;
+  z-index: 90;
+}
+
+.menu-btn span {
+  display: block;
+  position: absolute;
+  height: 3px;
+  width: 25px;
+  background: #333;
+  border-radius: 3px;
+  transition: 0.3s;
+}
+
+.menu-btn span:nth-of-type(1) {
+  top: 6px;
+}
+.menu-btn span:nth-of-type(2) {
+  top: 12px;
+}
+.menu-btn span:nth-of-type(3) {
+  top: 18px;
+}
+
+
+nav {
+  display: block;
+}
+
+@media screen and (max-width: 768px) {
+  .atama {
+    position: relative;
+    height: 56px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 15px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    margin: 0;
+    padding: 0;
+  }
+
+  html, body {
+    margin: 0;
+    padding: 0;
+  }
+}
+
+
+
+@media screen and (max-width: 768px) {
+  .headercontainer {
+    margin: 0;
+    padding: 0 15px;
+    height: 56px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .header-logo {
+    width: 110px;
+    height: auto;
+  }
+}
+
+@media screen and (max-width: 768px) {
+#menu-btn-check:checked ~ .menu-overlay {
+  display: block;
+  z-index: 9997;
+}
+
+#menu-btn-check:checked ~ nav {
+  display: flex;
+  z-index: 9999;
+}
+}
+
+@media screen and (max-width: 768px) {
+.menu-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.6);
+  z-index: 9998;
+}
+}
+
+@media screen and (max-width: 768px) {
+  nav ul {
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+  }
+
+  nav li {
+    display: block;
+    margin: 16px 0;
+  }
+
+  nav a {
+    display: block;
+    width: 100%;
+    padding: 12px 0;
+    color: #fff;
+    text-decoration: none;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  nav ul li a {
+    color: #fff !important;
+    position: relative;
+    z-index: 10001;
+  }
+}
+
+.sp-nav.active a {
+  color: #fff !important;
+}
+
+@media screen and (max-width: 768px) {
+  .menu-btn {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 22px;
+    cursor: pointer;
+    z-index: 10000;
+  }
+
+  .menu-btn span {
+    display: block;
+    height: 3px;
+    width: 100%;
+    background: #333;
+    border-radius: 2px;
+    transition: 0.3s;
+  }
+
+  nav {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 80%;
+    height: 100%;
+    background: rgba(0,0,0,0.8);
+    padding: 40px 20px;
+    transition: right 0.3s ease;
+    z-index: 9999;
+  }
+
+  #menu-btn-check:checked ~ nav {
+    right: 0;
+  }
+
+  #menu-btn-check:checked ~ .menu-overlay {
+    display: block;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .first-view {
+    position: relative;
+    height: auto !important;
+    padding-top: 0% !important;
+    overflow: visible;
+  }
+
+  .first-view_container {
+    position: relative;
+    padding-top: 0 !important;
+    padding-left: 16px;
+    padding-right: 16px;
+    box-sizing: border-box;
+  }
+
+  .human {
+    position: relative !important;
+    top: -20px;
+    right: -80px;
+    width: 92% !important;
+    max-width: 420px;
+    height: auto !important;
+    display: block;
+    margin: 0 0 18px auto;
+    object-fit: cover;
+  }
+
+  .first-viewContent_title {
+    position: relative;
+    text-align: left;
+    word-break: break-word;
+    font-size: 21px !important;
+    margin: 8px 0 12px !important;
+    line-height: 1.60 !important;
+    margin-bottom: 8px !important;
+    padding-right: 90px;
+    white-space: nowrap;
+    letter-spacing: -1.0px;
+    font-weight: 800;
+  }
+
+.No1 {
+  position: absolute !important;
+  top: -15px;
+  right: 30px;
+  width: 100px;
+  height: auto;
+  margin: 0 !important;
+  z-index: 3;
+}
+  .mainnobotan {
+    height: 64px;
+    width: 350px;
+    max-width: 720px;
+    margin: 18px auto !important;
+    padding: 14px 18px !important;
+    font-size: 16px !important;
+    display: block;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .first-viewcontent_sitanotiisaino {
+    font-size: 12px !important;
+    line-height: 1.4 !important;
+    padding: 0 4px;
+    color: #222;
+    display: block;
+    text-align: left;
+  }
+
+@media screen and (max-width: 767px) {
+  .hidariuenosannkaku {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 60%;
+    height: auto;
+    z-index: -1;
+  }
+
+  .hidariuenonagamaru {
+    position: absolute;
+    top: -5%;
+    left: 10%;
+    width: 80%;
+    height: auto;
+    z-index: -1;
+  }
+
+  .migisitanosannkaku {
+    display: none;
+  }
+}
+
+  .atama { top: 0 !important; height: 56px; }
+
+  .first-viewContent, .first-view_container { position: relative; z-index: 2; }
+}
