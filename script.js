@@ -1,63 +1,67 @@
-document.addEventListener("DOMContentLoaded", () => {
-  const buttons = document.querySelectorAll(".button");
-  const result = document.getElementById("result");
-  const equal = document.getElementById("equal");
-  const clear = document.getElementById("clear");
-  const back = document.getElementById("backspace");
+//変数取得
+const buttons = document.querySelectorAll(".button");
+const result = document.getElementById("result");
+const equal = document.getElementById("equal");
+const clear = document.getElementById("clear");
 
-  let lastInput = "";
-  let hasDot = false;
-  const operators = ["+", "-", "*", "/"];
+let lastInput = "";
+let hasOperator = false;
 
-  buttons.forEach(button => {
+buttons.forEach(button => {
     button.addEventListener("click", () => {
-      const value = button.textContent;
+        const value = button.textContent;
 
-      if (!isNaN(value)) {
-        result.value += value;
+        if (!isNaN(value) || value === ".") {
+            if (value === ".") {
+
+                const parts = result.value.split(/[\+\-\*\/]/);
+                const currentNumber = parts[parts.length - 1];
+                if (currentNumber.includes(".")) {
+                    return;
+                }
+
+                if (result.value === "" || /[\+\-\*\/]$/.test(result.value)) {
+                    result.value += "0.";
+                } else {
+                    result.value += ".";
+                }
+            } else if (result.value === "0") {
+
+                result.value = value;
+            } else {
+                result.value += value;
+            }
+            hasOperator = false;
+        }
+
+        // 演算子
+        else if (["＋", "－", "×", "÷"].includes(value)) {
+            if (!hasOperator && result.value !== "") {
+                let operator = value;
+                if (value === "＋") operator = "+";
+                else if (value === "－") operator = "-";
+                else if (value === "×") operator = "*";
+                else if (value === "÷") operator = "/";
+
+                result.value += operator;
+                hasOperator = true;
+            }
+        }
         lastInput = value;
-      } else if (value === ".") {
-        if (!hasDot) {
-          result.value += value;
-          hasDot = true;
-          lastInput = value;
-        }
-      } else if (operators.includes(value)) {
-        if (result.value !== "") {
-          if (operators.includes(lastInput)) {
-            // 演算子置き換え
-            result.value = result.value.slice(0, -1) + value;
-          } else {
-            result.value += value;
-          }
-          lastInput = value;
-          hasDot = false;
-        }
-      }
     });
-  });
+});
 
-  equal.addEventListener("click", () => {
-    try {
-      result.value = eval(result.value);
-      lastInput = "";
-      hasDot = result.value.includes(".");
-    } catch (e) {
-      result.value = "Error";
-      lastInput = "";
-      hasDot = false;
-    }
-  });
-
-  clear.addEventListener("click", () => {
+//クリア
+clear.addEventListener("click", () => {
     result.value = "";
-    lastInput = "";
-    hasDot = false;
-  });
+    hasOperator = false;
+});
 
-  back.addEventListener("click", () => {
-    if (result.value.slice(-1) === ".") hasDot = false;
-    result.value = result.value.slice(0, -1);
-    lastInput = result.value.slice(-1);
-  });
+//イコール
+equal.addEventListener("click", () => {
+    try {
+        result.value = eval(result.value);
+    } catch (e) {
+        result.value = "エラー";
+    }
 });
